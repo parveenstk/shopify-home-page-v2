@@ -961,17 +961,19 @@
                <div class="company-info">
                   <p>Sign up to get the latest on sales, new releases &amp; more </p>
                </div>
+
                <div class="subscribe-form">
-                  <form id="subscribe-desktop-form" class="row g-3">
-                     <div class="col-12 p-0 respo">
-                        <!-- Email Input Desktop -->
-                        <input type="email" class="form-control" id="email-address-desktop" name="Shopify Version - 2"
-                           placeholder="Your Email Address">
-                        <button type="submit" class="btn btn-primary mb-3">
-                           <img src="images/email.svg">
-                        </button>
-                     </div>
-                  </form>
+                  <div class="col-12 p-0 respo">
+                     <!-- Email Input Desktop -->
+                     <input type="email" class="form-control" id="email-address-desktop" name="Shopify Version - 2"
+                        placeholder="Your Email Address">
+                     <button id="submit-button" type="submit" class="btn btn-primary mb-3">
+                        <img id="button-inner-image" src="images/email.svg" name="arrow-img">
+                     </button>
+                     <button id="spinner-button" type="submit" class="btn btn-primary mb-3 hide">
+                        <img id="spinner" src="./images/spinner.svg" name="spinner" alt="spinner-svg" width="45px">
+                     </button>
+                  </div>
                </div>
                <div class="social-icons">
                   <ul>

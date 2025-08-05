@@ -1,480 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>YOMZ - login</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link href="style/css.css" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-      <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.css'>
-      <link rel='stylesheet' href='https:////cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css'>
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
-      <link rel="shortcut icon" href="images/light.png" type="image/ico">
-   </head>
-   <body>
-      <!--Top-header-->
-    <div class="topheader">
-         <div class="container">
-            <p>FREE SHIPPING | 100% MONEY BACK GUARANTEE</p>
+
+<head>
+   <title>YOMZ - login</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="style/css.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.css'>
+   <link rel='stylesheet'
+      href='https:////cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css'>
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+   <link rel="shortcut icon" href="images/light.png" type="image/ico">
+</head>
+
+<body>
+   <!-- Toaster Message -->
+   <div class="toaster hide" id="toaster">
+      <div id="timerline" class="timerline"></div>
+      <div class="inner-toaster">
+         <div>
+            <p class="toaster-success" id="toaster-title"></p>
+            <p class="toaster-text" id="toaster-text"></p>
          </div>
-      </div>
-      <!--Top-header-->
-      <!--Header and banner-->
-      <header class="desktop-header">
-         <!-- <a class="btn btn-primary offcanvasbtn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> <img src="images/toggle.svg" class="img-fluid"> </a> -->
-         <div class="container">
-            <div class="row justify-content-between align-items-center">
-               <div class="col-2">
-                  <div class="brand-logo"> <a href="https://suretekinfosoft.com/demo106/yomz-home/v2"><img src="images/logo.svg" class="img-fluid"></a> </div>
-               </div>
-               <!-- Mobile Cart -->
-               <div class="col-8 justify-content-center align-items-center">
-                  <ul class="menu-dask-top">
-                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2" class="links">Home</a></li>
-                  <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2" class="links">About</a></li>
-                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="links">products</a></li>
-                  <li><a href="contact.html" class="links">Contact</a></li> 
-                  </ul>
-               </div>
-               <div class="col-2">
-                  <div class="usefull-checkout text-end">
-                     <ul class="list-unstyled">
-                        <li>
-                           <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> 
-                              <img src="images/cart.svg" class="img-fluid hide">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#"> <img src="images/user.svg" class="img-fluid">
-                           </a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
+         <div class="toaster-cross" id="toaster-cross">
+            <img alt="toaster-cross" width="40">
          </div>
-      </header>
-      <header class="mobile-header"><div class="container-fluid"><div class="row align-items-center"><div class="col-3 px-0"><a class="btn btn-primary offcanvasbtn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> <img src="images/toggle.svg" class="img-fluid"></a>
-         </div>
-            <div class="col-6 px-0">
-            <div class="brand-logo"> <a href="https://suretekinfosoft.com/demo106/yomz-home/v2"><img src="images/logo.svg" class="img-fluid"></a> </div>
-            </div>
-            <div class="col-3 px-0">
-            <div class="usefull-checkout text-end">
-            <ul class="list-unstyled">
-            <li>
-            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-               <img src="images/cart.svg" class="img-fluid hide">
-            </a>
-            </li>
-            <li>
-            <a href="#"> <img src="images/user.svg" class="img-fluid">
-            </a>
-           </li>
-            </ul>
-            </div>
-            </div>
-         </div>
-      </div>
-      </header>
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div class="offcanvas-header">
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-      <div>     
-      <ul class="menubaar">
-      <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2" class="links">Home</a></li>
-      <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2" class="links">About</a></li>
-      <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="links">Products</a></li>
-      <li><a href="contact.html" class="links">Contact</a></li> 
-      </ul>
-      </div>
-      </div>
-      </div>
-      <!--Header-->
-      
-    <!--Service Banner-->
-
-    <div class="policy-banner">
-      <div class="container">
-         <div  class="row justify-content-center align-items-center">
-            <div class="col-md-3 col-6 mx-auto">
-               <div class="web-title">
-               <img src="images/login.png" class="img-fluid">
-            </div>
-            </div>
-         </div>
-      </div>
-    </div>
-
-
-
-    <!--Service Banner-->
-
-
-
-<div class="createaccount">
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-md-4 mx-auto">
-            <div class="createactc">
-               <div class="contact-form">            
-                     <form>
-                       
-                      
-                        <div class="mb-3">                        
-                         <input type="email" class="form-control" placeholder="Email">                        
-                       </div>
-                       <div class="mb-3"> 
-                       <div class="icons-col-set">                       
-                         <input type="password" class="form-control" placeholder="Password">
-                         <div class="icons-col-mgrole">
-                                                <img src="images/hide.svg">
-                                             </div>
-                      </div>
-                       </div>
-                       
-                       <p class="action-tag"><a href="forgotpassword.html">Forgot your password?</a></p>
-
-                       <button type="submit" class="btn btn-primary">Sign in</button>
-                        <p class="action-tag text-center"><a href="create-account.html">Create Account</a></p>
-                  </form>
-            </div>
-
-
-
-            </div>
-         </div>          
       </div>
    </div>
-</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!-- articles -->
-      <footer class="footer1">
-         <div class="container">
-            <div class="row">
-               <div class="notice-info">
-                  <p>**These statements have not been evaluated by the food and drug administration. This product is
-                     not intended to diagnose, treat, cure or prevent any disease. 
-                  </p>
-               </div>
+   <!--Top-header-->
+   <div class="topheader">
+      <div class="container">
+         <p>FREE SHIPPING | 100% MONEY BACK GUARANTEE</p>
+      </div>
+   </div>
+   <!--Top-header-->
+   <!--Header and banner-->
+   <header class="desktop-header">
+      <!-- <a class="btn btn-primary offcanvasbtn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> <img src="images/toggle.svg" class="img-fluid"> </a> -->
+      <div class="container">
+         <div class="row justify-content-between align-items-center">
+            <div class="col-2">
+               <div class="brand-logo"> <a href="https://suretekinfosoft.com/demo106/yomz-home/v2"><img
+                        src="images/logo.svg" class="img-fluid"></a> </div>
             </div>
-            <div class="row">
-               <div class="col-md-3">
-                  <div class="company-info"> <a href="https://suretekinfosoft.com/demo106/yomz-home/v2"> <img src="images/36.png" alt="logo-img" class="img-fluid">
-                     </a> 
-                  </div>
-               </div>
-               <div class="col-md-2 col-6 mb-3">
-                  <h2 class="footer-block__heading inline-richtext">Shop</h2>
-                  <ul class="footer-block__details-content list-unstyled">
-                     <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="link link--text list-menu__item list-menu__item--link">Shop All</a></li>
-                     <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="link link--text list-menu__item list-menu__item--link">Buy OG Gummies</a>
+            <!-- Mobile Cart -->
+            <div class="col-8 justify-content-center align-items-center">
+               <ul class="menu-dask-top">
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2" class="links">Home</a></li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2" class="links">About</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="links">products</a>
+                  </li>
+                  <li><a href="contact.html" class="links">Contact</a></li>
+               </ul>
+            </div>
+            <div class="col-2">
+               <div class="usefull-checkout text-end">
+                  <ul class="list-unstyled">
+                     <li>
+                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                           aria-controls="offcanvasRight">
+                           <img src="images/cart.svg" class="img-fluid hide">
+                        </a>
                      </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="link link--text list-menu__item list-menu__item--link">Buy YOMZ
-                        Sours</a>
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2" class="link link--text list-menu__item list-menu__item--link">Our Story</a></li>
-                     <li><a href="create-account.html" class="link link--text list-menu__item list-menu__item--link">Manage Account</a>
+                     <li>
+                        <a href="#"> <img src="images/user.svg" class="img-fluid">
+                        </a>
                      </li>
                   </ul>
-               </div>
-               <div class="col-md-2 col-6 mb-3">
-                  <h2 class="footer-block__heading inline-richtext">Company</h2>
-                  <ul class="footer-block__details-content list-unstyled">
-                     <li><a href="contact.html" class="link link--text list-menu__item list-menu__item--link">Contact Us</a>
-                     </li>
-                   <li><a href="articles.html" class="link link--text list-menu__item list-menu__item--link">Articles</a>
-                     </li>
-                      <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Lab Reports</a>
-                     </li>
-                     <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Affiliates</a>
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/terms-of-service.html" class="link link--text list-menu__item list-menu__item--link">Terms of
-                        Service</a> 
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/privacy-policy.html" class="link link--text list-menu__item list-menu__item--link">Privacy Policy</a>
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/returns-refunds.html" class="link link--text list-menu__item list-menu__item--link">Returns &amp;
-                        Refunds</a> 
-                     </li>
-                  </ul>
-               </div>
-               <div class="col-md-5 col-12">
-                  <h2 class="footer-block__heading inline-richtext footer-head">Join the YOMZ Fam!</h2>
-                  <div class="company-info">
-                     <p>Sign up to get the latest on sales, new releases &amp; more </p>
-                  </div>
-                  <div class="subscribe-form">
-                     <form class="row g-3">
-                        <div class="col-12 p-0 respo"> <input type="email" class="form-control" id="inputPassword" placeholder="Your Email Address"> <div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div><button type="submit" class="btn btn-primary mb-3"> <img src="images/email.svg"> </button> </div>
-                     </form>
-                  </div>
-                  <div class="social-icons">
-                     <ul>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                     </ul>
-                  </div>
-                  <div class="lestshare">
-                     <p>LET’S GET SOCIAL <img src="images/lets.png" class="img-fluid"> </p>
-                  </div>
-               </div>
-            </div>
-            <div class="row adresinfogp">
-               <div class="col-md-6">
-                  <div class="adresinfo">
-                     <p>Address</p>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="adresinfo">
-                     <p>Email</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row d-flex align-items-center footer__copyright-gap">
-               <div class="col-md-5 text-center mx-auto">
-                  <div class="payment"><img src="images/payment.png" class="img-fluid"> </div>
                </div>
             </div>
          </div>
-      </footer>
-<footer class="footer2">
-         <div class="container">
-            <div class="row">
-               <div class="notice-info">
-                  <p>**These statements have not been evaluated by the food and drug administration. This product is
-                     not intended to diagnose, treat, cure or prevent any disease. 
-                  </p>
-               </div>
+      </div>
+   </header>
+   <header class="mobile-header">
+      <div class="container-fluid">
+         <div class="row align-items-center">
+            <div class="col-3 px-0"><a class="btn btn-primary offcanvasbtn" data-bs-toggle="offcanvas"
+                  href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> <img src="images/toggle.svg"
+                     class="img-fluid"></a>
             </div>
-            <div class="row">
-               <div class="col-md-3">
-                  <div class="company-info"> <a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"> <img src="images/36.png" alt="logo-img" class="img-fluid">
-                     </a> 
-                  </div>
-                  <div class="social-icons">
-                     <ul>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                     </ul>
-                  </div>
-                  <div class="lestshare">
-                     <p>LET’S GET SOCIAL <img src="images/lets.png" class="img-fluid"> </p>
-                  </div>
-               </div>
-               <div class="col-md-2 col-6 mb-3">
-                  <h2 class="footer-block__heading inline-richtext">Shop</h2>
-                  <ul class="footer-block__details-content list-unstyled">
-                     <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="link link--text list-menu__item list-menu__item--link">Shop All</a></li>
-                     <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="link link--text list-menu__item list-menu__item--link">Buy OG Gummies</a>
+            <div class="col-6 px-0">
+               <div class="brand-logo"> <a href="https://suretekinfosoft.com/demo106/yomz-home/v2"><img
+                        src="images/logo.svg" class="img-fluid"></a> </div>
+            </div>
+            <div class="col-3 px-0">
+               <div class="usefull-checkout text-end">
+                  <ul class="list-unstyled">
+                     <li>
+                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                           aria-controls="offcanvasRight">
+                           <img src="images/cart.svg" class="img-fluid hide">
+                        </a>
                      </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="link link--text list-menu__item list-menu__item--link">Buy YOMZ
-                        Sours</a>
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2" class="link link--text list-menu__item list-menu__item--link">Our Story</a></li>
-                     <li><a href="create-account.html" class="link link--text list-menu__item list-menu__item--link">Manage Account</a>
+                     <li>
+                        <a href="#"> <img src="images/user.svg" class="img-fluid">
+                        </a>
                      </li>
                   </ul>
-               </div>
-               <div class="col-md-2 col-6 mb-3">
-                  <h2 class="footer-block__heading inline-richtext">Company</h2>
-                  <ul class="footer-block__details-content list-unstyled">
-                     <li><a href="contact.html" class="link link--text list-menu__item list-menu__item--link">Contact Us</a>
-                     </li>
-                   <li><a href="articles.html" class="link link--text list-menu__item list-menu__item--link">Articles</a>
-                     </li>
-                      <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Lab Reports</a>
-                     </li>
-                     <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Affiliates</a>
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/terms-of-service.html" class="link link--text list-menu__item list-menu__item--link">Terms of Service</a> 
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/privacy-policy.html" class="link link--text list-menu__item list-menu__item--link">Privacy Policy</a>
-                     </li>
-                     <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/returns-refunds.html" class="link link--text list-menu__item list-menu__item--link">Returns &amp;
-                        Refunds</a> 
-                     </li>
-                  </ul>
-               </div>
-               <div class="col-md-5 col-12">
-                  <div class="row adresinfogp">
-                     <div class="col-md-6">
-                        <div class="adresinfo">
-                           <p>Address</p>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="adresinfo">
-                           <p>Email</p>
-                        </div>
-                     </div>
-                  </div>
-                  <h2 class="footer-block__heading inline-richtext footer-head">Join the YOMZ Fam!</h2>
-                  <div class="company-info">
-                     <p>Sign up to get the latest on sales, new releases &amp; more </p>
-                  </div>
-                  <div class="subscribe-form">
-                     <form class="row g-3">
-                        <div class="col-12 p-0 respo"> <input type="email" class="form-control" id="inputPassword2" placeholder="Your Email Address"> <button type="submit" class="btn btn-primary mb-3"> <img src="images/email.svg"> </button> </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-            <div class="row d-flex align-items-center footer__copyright-gap">
-               <div class="col-md-12 text-center">
-                  <div class="payment"> <img src="images/ftr-payment-logo.png" class="img-fluid img1"> </div>
                </div>
             </div>
          </div>
-      </footer>
-      <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-      <script src='https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js'></script>
-      <script  src="js/script.js"></script>
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
-      <script>
-         (function () {
-             "use strict";
-           
-             var carousels = function () {
-               $(".owl-carousel1").owlCarousel({
-                 loop: true,
-                 center: true,
-                 nav: true,
-                 margin: 0,
-                 responsiveClass: true,
-                 nav: true,
-                 responsive: {
-                   0: {
+      </div>
+   </header>
+   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+         <div>
+            <ul class="menubaar">
+               <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2" class="links">Home</a></li>
+               <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2" class="links">About</a></li>
+               <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/" class="links">Products</a></li>
+               <li><a href="contact.html" class="links">Contact</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+   <!--Header-->
+
+   <!--Service Banner-->
+
+   <div class="policy-banner">
+      <div class="container">
+         <div class="row justify-content-center align-items-center">
+            <div class="col-md-3 col-6 mx-auto">
+               <div class="web-title">
+                  <img src="images/login.png" class="img-fluid">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!--Service Banner-->
+
+   <div class="createaccount">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-4 mx-auto">
+               <div class="createactc">
+                  <div class="contact-form">
+                     <form>
+
+                        <div class="mb-3">
+                           <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                           <div class="icons-col-set">
+                              <input type="password" class="form-control" placeholder="Password">
+                              <div class="icons-col-mgrole">
+                                 <img src="images/hide.svg">
+                              </div>
+                           </div>
+                        </div>
+
+                        <p class="action-tag"><a href="forgotpassword.html">Forgot your password?</a></p>
+
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <p class="action-tag text-center"><a href="create-account.html">Create Account</a></p>
+                     </form>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- articles -->
+   <footer class="footer1">
+      <div class="container">
+         <div class="row">
+            <div class="notice-info">
+               <p>**These statements have not been evaluated by the food and drug administration. This product is
+                  not intended to diagnose, treat, cure or prevent any disease.
+               </p>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3">
+               <div class="company-info"> <a href="https://suretekinfosoft.com/demo106/yomz-home/v2"> <img
+                        src="images/36.png" alt="logo-img" class="img-fluid">
+                  </a>
+               </div>
+            </div>
+            <div class="col-md-2 col-6 mb-3">
+               <h2 class="footer-block__heading inline-richtext">Shop</h2>
+               <ul class="footer-block__details-content list-unstyled">
+                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"
+                        class="link link--text list-menu__item list-menu__item--link">Shop All</a></li>
+                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"
+                        class="link link--text list-menu__item list-menu__item--link">Buy OG Gummies</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"
+                        class="link link--text list-menu__item list-menu__item--link">Buy YOMZ
+                        Sours</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2"
+                        class="link link--text list-menu__item list-menu__item--link">Our Story</a></li>
+                  <li><a href="create-account.html" class="link link--text list-menu__item list-menu__item--link">Manage
+                        Account</a>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-md-2 col-6 mb-3">
+               <h2 class="footer-block__heading inline-richtext">Company</h2>
+               <ul class="footer-block__details-content list-unstyled">
+                  <li><a href="contact.html" class="link link--text list-menu__item list-menu__item--link">Contact
+                        Us</a>
+                  </li>
+                  <li><a href="articles.html" class="link link--text list-menu__item list-menu__item--link">Articles</a>
+                  </li>
+                  <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Lab Reports</a>
+                  </li>
+                  <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Affiliates</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/terms-of-service.html"
+                        class="link link--text list-menu__item list-menu__item--link">Terms of
+                        Service</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/privacy-policy.html"
+                        class="link link--text list-menu__item list-menu__item--link">Privacy Policy</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/returns-refunds.html"
+                        class="link link--text list-menu__item list-menu__item--link">Returns &amp;
+                        Refunds</a>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-md-5 col-12">
+               <h2 class="footer-block__heading inline-richtext footer-head">Join the YOMZ Fam!</h2>
+               <div class="company-info">
+                  <p>Sign up to get the latest on sales, new releases &amp; more </p>
+               </div>
+               <div class="subscribe-form">
+
+                  <div class="col-12 p-0 respo">
+                     <!-- Email Input Desktop -->
+                     <input type="email" class="form-control" id="email-address-desktop" name="Shopify Version - 2"
+                        placeholder="Your Email Address">
+                     <button id="submit-button" type="submit" class="btn btn-primary mb-3">
+                        <img src="images/email.svg" name="arrow-img">
+                     </button>
+                     <button id="spinner-button" type="submit" class="btn btn-primary mb-3 hide">
+                        <img src="./images/spinner.svg" name="spinner" alt="spinner-svg" width="45px">
+                     </button>
+                  </div>
+
+               </div>
+               <div class="social-icons">
+                  <ul>
+                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                     <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  </ul>
+               </div>
+               <div class="lestshare">
+                  <p>LET’S GET SOCIAL <img src="images/lets.png" class="img-fluid"> </p>
+               </div>
+            </div>
+         </div>
+         <div class="row adresinfogp">
+            <div class="col-md-6">
+               <div class="adresinfo">
+                  <p>Address</p>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="adresinfo">
+                  <p>Email</p>
+               </div>
+            </div>
+         </div>
+         <div class="row d-flex align-items-center footer__copyright-gap">
+            <div class="col-md-5 text-center mx-auto">
+               <div class="payment"><img src="images/payment.png" class="img-fluid"> </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <footer class="footer2">
+      <div class="container">
+         <div class="row">
+            <div class="notice-info">
+               <p>**These statements have not been evaluated by the food and drug administration. This product is
+                  not intended to diagnose, treat, cure or prevent any disease.
+               </p>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3">
+               <div class="company-info"> <a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"> <img
+                        src="images/36.png" alt="logo-img" class="img-fluid">
+                  </a>
+               </div>
+               <div class="social-icons">
+                  <ul>
+                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                     <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  </ul>
+               </div>
+               <div class="lestshare">
+                  <p>LET’S GET SOCIAL <img src="images/lets.png" class="img-fluid"> </p>
+               </div>
+            </div>
+            <div class="col-md-2 col-6 mb-3">
+               <h2 class="footer-block__heading inline-richtext">Shop</h2>
+               <ul class="footer-block__details-content list-unstyled">
+                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"
+                        class="link link--text list-menu__item list-menu__item--link">Shop All</a></li>
+                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"
+                        class="link link--text list-menu__item list-menu__item--link">Buy OG Gummies</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/products/yomz-pdp/v2/"
+                        class="link link--text list-menu__item list-menu__item--link">Buy YOMZ
+                        Sours</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz/pages/yomz-story/v2"
+                        class="link link--text list-menu__item list-menu__item--link">Our Story</a></li>
+                  <li><a href="create-account.html" class="link link--text list-menu__item list-menu__item--link">Manage
+                        Account</a>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-md-2 col-6 mb-3">
+               <h2 class="footer-block__heading inline-richtext">Company</h2>
+               <ul class="footer-block__details-content list-unstyled">
+                  <li><a href="contact.html" class="link link--text list-menu__item list-menu__item--link">Contact
+                        Us</a>
+                  </li>
+                  <li><a href="articles.html" class="link link--text list-menu__item list-menu__item--link">Articles</a>
+                  </li>
+                  <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Lab Reports</a>
+                  </li>
+                  <li><a href="#" class="link link--text list-menu__item list-menu__item--link">Affiliates</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/terms-of-service.html"
+                        class="link link--text list-menu__item list-menu__item--link">Terms of Service</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/privacy-policy.html"
+                        class="link link--text list-menu__item list-menu__item--link">Privacy Policy</a>
+                  </li>
+                  <li><a href="https://suretekinfosoft.com/demo106/yomz-home/v2/returns-refunds.html"
+                        class="link link--text list-menu__item list-menu__item--link">Returns &amp;
+                        Refunds</a>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-md-5 col-12">
+               <div class="row adresinfogp">
+                  <div class="col-md-6">
+                     <div class="adresinfo">
+                        <p>Address</p>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="adresinfo">
+                        <p>Email</p>
+                     </div>
+                  </div>
+               </div>
+               <h2 class="footer-block__heading inline-richtext footer-head">Join the YOMZ Fam!</h2>
+               <div class="company-info">
+                  <p>Sign up to get the latest on sales, new releases &amp; more </p>
+               </div>
+               <div class="subscribe-form">
+
+                  <div class="col-12 p-0 respo">
+                     <!-- Email Input Mobile -->
+                     <input type="email" class="form-control" id="email-address-mobile"
+                        placeholder="Your Email Address">
+                     <button id="submit-mobile" class="btn btn-primary mb-3">
+                        <img src="images/email.svg">
+                     </button>
+                     <button id="spinner-button-mobile" type="submit" class="btn btn-primary mb-3 hide">
+                        <img src="./images/spinner.svg" name="spinner" alt="spinner-svg" width="45px">
+                     </button>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+         <div class="row d-flex align-items-center footer__copyright-gap">
+            <div class="col-md-12 text-center">
+               <div class="payment"> <img src="images/ftr-payment-logo.png" class="img-fluid img1"> </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+   <script src='https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
+
+   <!-- import function scripts -->
+   <script src="./js/script.js"></script>
+   <script src="./js/subscription.js"></script>
+   <script>
+      (function () {
+         "use strict";
+
+         var carousels = function () {
+            $(".owl-carousel1").owlCarousel({
+               loop: true,
+               center: true,
+               nav: true,
+               margin: 0,
+               responsiveClass: true,
+               nav: true,
+               responsive: {
+                  0: {
                      items: 2,
                      nav: true
-                   },
-                   680: {
+                  },
+                  680: {
                      items: 2,
                      nav: true,
                      loop: true
-                   },
-                   1000: {
+                  },
+                  1000: {
                      items: 5,
                      nav: true
-                   }
-                 }
+                  }
+               }
+            });
+         };
+
+         var owl = $('.owl-carousel1');
+         owl.owlCarousel({
+            loop: true,
+            center: true,
+            nav: true,
+            margin: 0,
+            responsiveClass: true,
+            nav: true,
+            responsive: {
+               0: {
+                  items: 2,
+                  nav: true
+               },
+               680: {
+                  items: 2,
+                  nav: true,
+                  loop: false
+               },
+               1000: {
+                  items: 5,
+                  nav: true
+               }
+            }
+
+         });
+
+         (function ($) {
+            //   carousels();
+
+            $('.mute-button').on('click', function () {
+               var video = $(this).siblings('video')[0];
+               if (video.muted) {
+                  // video.muted = false;
+                  // $(this).text('Mute');
+                  $('.mute-button').html('<img src="images/unmute.webp">');
+                  $('.owl-item').each(function () {
+                     this.getElementsByTagName('video')[0].muted = false;
+                  });
+               } else {
+                  $('.mute-button').html('<img src="images/mute.avif">');
+                  $('.owl-item').each(function () {
+                     this.getElementsByTagName('video')[0].muted = true;
+                  });
+
+                  // video.muted = true;
+                  // $(this).text('Unmute');
+               }
+            });
+
+            // Listen to owl events:
+            owl.on('changed.owl.carousel', function (event) {
+               setTimeout(() => {
+                  $('.owl-item video').each(function () {
+                     console.log(this);
+                     this.pause(); // Pause the video
+                     //this.currentTime = 0; // Reset the video to the beginning
+                  });
+
+                  $('.owl-item').each(function () {
+                     if (this.classList.contains('center')) {
+                        console.log(this.getElementsByTagName('video'));
+                        this.getElementsByTagName('video')[0].play();
+                        // this.pause(); // Pause the video
+                        // this.currentTime = 0; // Reset the video to the beginning
+                     }
+                  });
+               }, 500)
+
+            })
+            owl.on('click', '.owl-item', function () {
+               var index = $(this).index();
+               owl.trigger('to.owl.carousel', [index, 300, true]);
+               $('.owl-item video').each(function () {
+                  console.log(this);
+                  this.pause(); // Pause the video
                });
-             };
-         
-             var owl = $('.owl-carousel1');
-                 owl.owlCarousel({
-                     loop: true,
-                     center: true,
-                     nav: true,
-                     margin: 0,
-                     responsiveClass: true,
-                     nav: true,
-                     responsive: {
-                     0: {
-                         items: 2,
-                         nav: true
-                     },
-                     680: {
-                         items: 2,
-                         nav: true,
-                         loop: false
-                     },
-                     1000: {
-                         items: 5,
-                         nav: true
-                     }
-                     }
-                     
-                 });
-         
-           
-             (function ($) {
-             //   carousels();
-         
-                 $('.mute-button').on('click', function() {
-                     var video = $(this).siblings('video')[0];
-                     if (video.muted) {
-                         // video.muted = false;
-                         // $(this).text('Mute');
-                         $('.mute-button').html('<img src="images/unmute.webp">');
-                         $('.owl-item').each(function() {
-                             this.getElementsByTagName('video')[0].muted = false;
-                         });
-                     } else {
-                        $('.mute-button').html('<img src="images/mute.avif">');
-                          $('.owl-item').each(function() {
-                             this.getElementsByTagName('video')[0].muted = true;
-                         });
-         
-                         // video.muted = true;
-                         // $(this).text('Unmute');
-                     }
-                 });
-         
-                 // Listen to owl events:
-                 owl.on('changed.owl.carousel', function(event) {
-                   setTimeout(() => {
-                     $('.owl-item video').each(function() {
-                             console.log(this);
-                             this.pause(); // Pause the video
-                             //this.currentTime = 0; // Reset the video to the beginning
-                         });
-         
-                         $('.owl-item').each(function() {
-                          if(this.classList.contains('center')){
-                             console.log(this.getElementsByTagName('video'));
-                             this.getElementsByTagName('video')[0].play();
-                             // this.pause(); // Pause the video
-                             // this.currentTime = 0; // Reset the video to the beginning
-                          }
-                         });
-                   }, 500)
-         
-         
-                 })
-                 owl.on('click', '.owl-item', function() {
-                     var index = $(this).index();
-                     owl.trigger('to.owl.carousel', [index, 300, true]);
-                        $('.owl-item video').each(function() {
-                             console.log(this);
-                             this.pause(); // Pause the video
-                         });
-         
-                         $('.owl-item').each(function() {
-                          if(this.classList.contains('center')){
-                             console.log(this.getElementsByTagName('video'));
-                             this.getElementsByTagName('video')[0].play();
-                          }
-                         });
-                     
-                 });
-             })(jQuery);
-           })();
-         
-      </script>
-   </body>
+
+               $('.owl-item').each(function () {
+                  if (this.classList.contains('center')) {
+                     console.log(this.getElementsByTagName('video'));
+                     this.getElementsByTagName('video')[0].play();
+                  }
+               });
+
+            });
+         })(jQuery);
+      })();
+
+   </script>
+</body>
+
 </html>

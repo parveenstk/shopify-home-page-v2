@@ -28,8 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     submitBtn.addEventListener('click', function (event) {
         event.preventDefault();
+
         const desktopData = desktopEmail.value.trim();
-        
+
         if (desktopData.length > 0 && emailRegex.test(desktopData)) {
             localStorage.setItem("Saved Email", desktopData);
             saveEmail(desktopData);

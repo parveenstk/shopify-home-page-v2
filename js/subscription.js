@@ -79,6 +79,7 @@ const saveEmail = async (email) => {
             autoHide();
         } else {
             console.error("Server Error, Please try to re-submit the email.");
+            updateToaster('error');
         }
     } catch (error) {
         console.error("Error calling API:", error);
@@ -131,6 +132,13 @@ const toasterContent = {
         color: "#f18a02",
         backgroundColor: "#fff9dc",
         crossIcon: "./images/toaster/cross-tost-warning.svg",
+    },
+    error: {
+        title: "Something went wrong!",
+        text: "Please, try again in a while",
+        color: "#bd5254",
+        backgroundColor: "#fcefea",
+        crossIcon: "./images/toaster/cross-tost-error.svg",
     }
 };
 

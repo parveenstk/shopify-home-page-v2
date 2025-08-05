@@ -61,14 +61,49 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // API call to save email inputs data in the sheet
+// const url = 'https://yomz-pages-data.vercel.app/api/data';
+// const emailInputtName = document.getElementById("email-address-desktop").getAttribute("name");
+// const desktopEmail = document.getElementById('email-address-desktop').value;
+// const saveEmail = async (email) => {
+//     try {
+//         const response = await fetch(`${url}?email=${email}&sheetName=${emailInputtName}&column=!B5:C5`, {
+//             method: 'GET'
+//         });
+//         const result = await response.json();
+
+//         if (result.result === 'SUCCESS') {
+//             console.log("Sheet Updated Successfully.");
+//             hideToggleHandler(spinner, submitBtn);
+//             hideToggleHandler(mobileSpinner, mobileSubmit);
+//             updateToaster('success');
+//             autoHide();
+//         } else {
+//             console.error("Server Error, Please try to re-submit the email.");
+//             updateToaster('error');
+//         }
+//     } catch (error) {
+//         console.error("Error calling API:", error);
+//     }
+// };
+
 const url = 'https://yomz-pages-data.vercel.app/api/data';
 const emailInputtName = document.getElementById("email-address-desktop").getAttribute("name");
 const desktopEmail = document.getElementById('email-address-desktop').value;
+
 const saveEmail = async (email) => {
+    const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("API request timed out")), 20000)
+    );
+
     try {
-        const response = await fetch(`${url}?email=${email}&sheetName=${emailInputtName}&column=!B5:C5`, {
-            method: 'GET'
-        });
+        // Race between the API call and the timeout
+        const response = await Promise.race([
+            fetch(`${url}?email=${email}&sheetName=${emailInputtName}&column=!B5:C5`, {
+                method: 'GET'
+            }),
+            timeout
+        ]);
+
         const result = await response.json();
 
         if (result.result === 'SUCCESS') {
@@ -79,10 +114,18 @@ const saveEmail = async (email) => {
             autoHide();
         } else {
             console.error("Server Error, Please try to re-submit the email.");
+            hideToggleHandler(spinner, submitBtn);
+            hideToggleHandler(mobileSpinner, mobileSubmit);
             updateToaster('error');
+            autoHide();
         }
     } catch (error) {
-        console.error("Error calling API:", error);
+        // Handle timeout and other errors
+        console.error(error.message || "Error calling API.");
+        hideToggleHandler(spinner, submitBtn);
+        hideToggleHandler(mobileSpinner, mobileSubmit);
+        updateToaster('error');
+        autoHide();
     }
 };
 

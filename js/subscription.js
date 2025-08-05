@@ -17,26 +17,25 @@ const timerline = document.getElementById('timerline');
 
 const submitBtn = document.getElementById('submit-button');
 const spinner = document.getElementById('spinner-button');
+const mobileSubmit = document.getElementById('submit-mobile');
+const mobileSpinner = document.getElementById('spinner-button-mobile');
 
 // Email inputs submission
 document.addEventListener("DOMContentLoaded", function () {
     const desktopEmail = document.getElementById('email-address-desktop');
-    const mobileForm = document.getElementById("subscribe-mobile-form");
     const mobileEmail = document.getElementById('email-address-mobile');
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // Desktop email input
     submitBtn.addEventListener('click', function (event) {
         event.preventDefault();
-
         const desktopData = desktopEmail.value.trim();
 
         if (desktopData.length > 0 && emailRegex.test(desktopData)) {
             localStorage.setItem("Saved Email", desktopData);
             saveEmail(desktopData);
-            submitBtn.classList.add('hide');
-            spinner.classList.remove('hide');
-            console.log("click ho raha hoon, bhai.");
+            hideToggleHandler(submitBtn, spinner);
             desktopEmail.value = ''; // clear input only here
         } else {
             updateToaster('warning');
@@ -44,21 +43,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // mobile email input
-    mobileForm && mobileForm.addEventListener("submit", function (event) {
+    // Mobile email input
+    mobileSubmit.addEventListener('click', function (event) {
         event.preventDefault();
         const mobileData = mobileEmail.value.trim();
-        if (mobileData.length > 0) {
+
+        if (mobileData.length > 0 && emailRegex.test(mobileData)) {
             localStorage.setItem("Saved Email", mobileData);
-            saveEmail(mobileEmail.value);
-            // updateToaster('success');
-            // autoHide();
+            saveEmail(mobileData);
+            hideToggleHandler(mobileSubmit, mobileSpinner);
+            mobileEmail.value = ''; // clear input only here
         } else {
             updateToaster('warning');
             autoHide();
         }
-        mobileEmail.value = ''; // clear input
-    });
+    })
 });
 
 // API call to save email inputs data in the sheet
@@ -73,9 +72,9 @@ const saveEmail = async (email) => {
         const result = await response.json();
 
         if (result.result === 'SUCCESS') {
-            console.log("yyyyyyyyyyyyyyyyyyyyy");
-            spinner.classList.add('hide');
-            submitBtn.classList.remove('hide');
+            console.log("Sheet Updated Successfully.");
+            hideToggleHandler(spinner, submitBtn);
+            hideToggleHandler(mobileSpinner, mobileSubmit);
             updateToaster('success');
             autoHide();
         } else {
@@ -139,3 +138,9 @@ const toasterContent = {
 toasterCross.addEventListener('click', () => {
     toaster.classList.add('hide');
 })
+
+// Reusable functions to manage hide classes
+const hideToggleHandler = (elem1, elem2) => {
+    elem1.classList.add('hide');
+    elem2.classList.remove('hide');
+};

@@ -49,6 +49,29 @@ p {
   font-size: 18px;
 }
 
+.spinner {
+  padding: 0px !important;
+  margin: 0px !important;
+  width: 130px;
+  cursor: pointer;
+}
+
+.success-message {
+  margin-bottom: 0px !important;
+  background-color: #499749;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.error-message {
+  margin-bottom: 0px !important;
+  text-align: start;
+  padding: 4px 0px 0px 12px;
+  font-size: 15px !important;
+  color: #ef2a1e;
+}
+
 .hide {
   display: none !important;
 }

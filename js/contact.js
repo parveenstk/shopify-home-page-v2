@@ -4,6 +4,7 @@ const nameInput = document.getElementById('name');
 const emailAddress = document.getElementById('email-address');
 const phoneNumber = document.getElementById('phone-number');
 const commentBox = document.getElementById('comment-box');
+const successMessage = document.getElementById('success-message');
 
 const fields = [nameInput, emailAddress, phoneNumber, commentBox];
 
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.localStorage.setItem('contactData', JSON.stringify(inputValues));
         const contData = JSON.parse(localStorage.getItem('contactData'));
         console.log('contData:', contData);
+        successMessage.classList.remove('hide');
         resetForm();
     });
 
@@ -70,6 +72,7 @@ const resetForm = () => {
     fields.forEach(field => {
         field.value = '';
         field.classList.remove('is-valid', 'is-invalid');
+        hideMessage();
     })
 };
 
@@ -128,4 +131,11 @@ const validationCheck = (field) => {
             errorSpan.innerText = '';
         }
     }
+};
+
+// hide success message 
+const hideMessage = () => {
+    setTimeout(() => {
+        successMessage.classList.add('hide');
+    }, 4000)
 };

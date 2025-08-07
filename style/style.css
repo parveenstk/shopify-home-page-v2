@@ -56,12 +56,12 @@ p {
   cursor: pointer;
 }
 
-.success-message {
+.inner-message {
   margin-bottom: 0px !important;
   background-color: #499749;
   padding: 10px;
   border-radius: 5px;
-  color: white;
+  color: #ffffff;
   opacity: 0;
   transform: translateY(20px);
   animation: slideIn 0.7s forwards;
@@ -2566,12 +2566,16 @@ input::placeholder {
 
 @media (max-width: 767px) {
 
-  .align-success {
+  .dual-balls {
+    width: 70px !important;
+  }
+
+  .align-message {
     display: flex;
     justify-content: center;
     padding: 10px 0px 0px 0px;
 
-    .success-message {
+    .inner-message {
       font-size: 14px !important;
       padding: 8px;
     }

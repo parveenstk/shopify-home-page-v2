@@ -4,7 +4,8 @@ const nameInput = document.getElementById('name');
 const emailAddress = document.getElementById('email-address');
 const phoneNumber = document.getElementById('phone-number');
 const commentBox = document.getElementById('comment-box');
-const successMessage = document.getElementById('success-message');
+const messageBox = document.getElementById('message-box');
+const innerMessage = document.getElementById('inner-message');
 const loader = document.getElementById('spinner-img');
 const submitButton = document.getElementById('submit-form');
 
@@ -137,7 +138,7 @@ const validationCheck = (field) => {
 // hide success message 
 const hideMessage = () => {
     setTimeout(() => {
-        successMessage.classList.add('hide');
+        messageBox.classList.add('hide');
     }, 4000)
 };
 
@@ -158,26 +159,59 @@ const updateSheet = async (formData) => {
         column: "!E5:I5"
     });
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => {
+        controller.abort(); // Abort the request after 30 seconds
+    }, 30000);
+
     const requestOptions = {
         method: "POST",
         headers: myHeaders,
         body: raw,
-        redirect: "follow"
+        redirect: "follow",
+        signal: controller.signal
     };
 
     try {
         const response = await fetch("https://yomz-pages-data.vercel.app/api/contactUs", requestOptions);
-        const result = await response.json(); // Now this works properly
+        clearTimeout(timeoutId); // Clear the timeout on success
+        const result = await response.json();
 
         if (result.status === 'SUCCESS') {
-            successMessage.classList.remove('hide');
-            hideToggleHandle(loader, submitButton)
+            updatedMessage('success');
+            hideToggleHandle(loader, submitButton);
             hideMessage();
             resetForm();
         } else {
             console.error("Server returned error:", result.message);
         }
     } catch (error) {
-        console.warn("Fetch failed:", error);
+        if (error.name === 'AbortError') {
+            console.error("Request timed out after 30 seconds.");
+            resetForm();
+            hideToggleHandle(loader, submitButton);
+            updatedMessage('error');
+            hideMessage();
+        } else {
+            console.warn("Fetch failed:", error);
+        }
     }
 };
+
+const messageContent = {
+    'success': {
+        innerText: 'Details sent successfully! We’ll be in touch shortly.',
+        backgroundColor: '#499749'
+    },
+    'error': {
+        innerText: 'Please, try again in a while.',
+        backgroundColor: '#d43333'
+    }
+}
+
+const updatedMessage = (type) => {
+    messageBox.classList.remove('hide');
+
+    innerMessage.innerText = messageContent[type].innerText;
+    innerMessage.style.backgroundColor = messageContent[type].backgroundColor;
+}

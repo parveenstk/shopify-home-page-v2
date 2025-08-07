@@ -5,6 +5,8 @@ const emailAddress = document.getElementById('email-address');
 const phoneNumber = document.getElementById('phone-number');
 const commentBox = document.getElementById('comment-box');
 const successMessage = document.getElementById('success-message');
+const loader = document.getElementById('spinner-img');
+const submitButton = document.getElementById('submit-form');
 
 const fields = [nameInput, emailAddress, phoneNumber, commentBox];
 
@@ -37,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
         window.localStorage.setItem('contactData', JSON.stringify(inputValues));
         const contData = JSON.parse(localStorage.getItem('contactData'));
         console.log('contData:', contData);
-        successMessage.classList.remove('hide');
-        resetForm();
+        hideToggleHandle(submitButton, loader)
+        updateSheet(contData);
     });
 
     fields.forEach(field => {
@@ -72,7 +74,6 @@ const resetForm = () => {
     fields.forEach(field => {
         field.value = '';
         field.classList.remove('is-valid', 'is-invalid');
-        hideMessage();
     })
 };
 
@@ -138,4 +139,45 @@ const hideMessage = () => {
     setTimeout(() => {
         successMessage.classList.add('hide');
     }, 4000)
+};
+
+// manage hide toggles
+const hideToggleHandle = (elem1, elem2) => {
+    elem1.classList.add('hide');
+    elem2.classList.remove('hide');
+};
+
+// Call API to save data in excel sheet
+const updateSheet = async (formData) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        formData: formData,
+        sheetName: "Shopify Version - 2",
+        column: "!E5:I5"
+    });
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    try {
+        const response = await fetch("https://yomz-pages-data.vercel.app/api/contactUs", requestOptions);
+        const result = await response.json(); // Now this works properly
+
+        if (result.status === 'SUCCESS') {
+            successMessage.classList.remove('hide');
+            hideToggleHandle(loader, submitButton)
+            hideMessage();
+            resetForm();
+        } else {
+            console.error("Server returned error:", result.message);
+        }
+    } catch (error) {
+        console.warn("Fetch failed:", error);
+    }
 };
